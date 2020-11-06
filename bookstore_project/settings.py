@@ -54,7 +54,16 @@ SITE_ID = 1
 AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',
                            'allauth.account.auth_backends.AuthenticationBackend',
                            )
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.kreuka.de'
+EMAIL_HOST_USER = 'tali@kreuka.de'
+EMAIL_HOST_PASSWORD = 'testpass123'
+EMAIL_PORT = '587'
+EMAIL_USE_TLS = 'EMAIL_USE_TLS'
+
+
+
+
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
@@ -64,6 +73,9 @@ ACCOUNT_UNIQUE_EMAIL = True
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+DEFAULT_FROM_EMAIL = 'admin@djangobookstore.com'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
